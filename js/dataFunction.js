@@ -30,14 +30,14 @@ const getPokemonDescription = (name) =>
       let imgEl = document.getElementById("pokemon-sprite");
       pEl.innerHTML = "";
       pEl.append(description);
-      imgEl.setAttribute("src", getPokemonSpriteUrl(data.order));
+      imgEl.setAttribute("src", getPokemonSpriteUrl(data.id));
     })
     .catch((err) => {
       console.log(err);
     });
 
 function getPokemonSpriteUrl(num) {
-  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${num}.png`;
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${num}.png`;
 }
 
 function dropListItems(item) {
