@@ -5,23 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/main.css" />
-    <script src="./js/dataFunction.js"></script>
+
     <title>Pokemon Search App</title>
   </head>
   <body class="container">
     <header class="header">
+      <h1>POKEMON APP</h1>
+      <p class="p p--description">
+        Use the dropdown menu to select a pokemon and learn more about it.
+      </p>
+    </header>
+    <main class="main">
       <select id="pokemonInput" name="pokemonInput" class="pokemonInputs">
         <!--POKEMON DROPDOWN-->
         <option value="default" selected>Select a Pokemon...</option>
       </select>
-    </header>
-    <main class="main">
-      <section id="pokemon-card" class="card-main">
-        <h3 id="pokemon-name" class="card-name"><!--POKEMON NAME--></h3>
-        <img src='' id="pokemon-sprite" class="card-sprite" /><!--POKEMON SPRITE-->
-        <p id="pokemon-description" class="card-text">
-          <!--POKEMON FLAVOR TEXT-->
-        </p>
+      <section class="section main-card">
+        <div id="pokemon-card" class="div div__card">
+          <h3 id="pokemon-name" class="card-name"><!--POKEMON NAME--></h3>
+          <img
+            src=""
+            id="pokemon-sprite"
+            class="img img--pokemon"
+          /><!--POKEMON SPRITE-->
+          <p id="pokemon-description" class="p p--description">
+            <!--POKEMON FLAVOR TEXT-->
+          </p>
+        </div>
       </section>
     </main>
     <footer class="footer">
@@ -32,4 +42,5 @@
       </p>
     </footer>
   </body>
+  <script src="./js/dataFunction.js"></script>
 </html>

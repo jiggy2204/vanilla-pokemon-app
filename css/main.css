@@ -1,3 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=swap");
+
+/* MAIN COLORS */
+
+:root {
+  --purple: #a4aeeb;
+  --purpleShadow: #6c76b8;
+  --grey: #e2e2dc;
+  --mutedBlue: #99cfeb;
+  --mustard: #ebd281;
+  --mutedMint: #8debd7;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +18,7 @@
 
 html {
   box-sizing: border-box;
+  font-family: "Nunito";
 }
 
 *::before,
@@ -13,7 +27,7 @@ html {
 }
 
 body {
-  background-color: rgb(221, 206, 202);
+  background-color: var(--purple);
 }
 
 img {
@@ -24,55 +38,85 @@ header {
   text-align: center;
 }
 
-header select {
-  border-radius: 5px;
-  color: green;
-  width: 50vw;
-  padding: 5px;
-  margin-top: 5%;
-  font-size: 1.5em;
+select {
+  font-family: "Nunito";
+  font-size: 2em;
+  font-weight: 600;
+  border-radius: 15px;
+  padding: 10px;
+  color: var(--mutedBlue);
 }
 
-.card-main {
-  margin-top: 2%;
-  border-radius: 25px;
-  padding: 15px;
-  background-color: #fff;
-  text-align: center;
-  box-shadow: 0 0 15px #cecece;
-}
-
-.card-sprite {
-  padding: 15px;
-  border-radius: 50%;
-  border: 1px solid #cecece;
-}
-
-.card-text {
-  font-size: 1.5em;
-  margin-top: 5%;
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  gap: 5px 5px;
+  width: 100%;
   text-align: center;
 }
+.header {
+  grid-area: 1 / 3 / 3 / 11;
+  margin-bottom: 5%;
+}
+.main {
+  grid-area: 3 / 3 / 13 / 11;
+}
+.main-select {
+  grid-area: 3 / 3 / 5 / 11;
+}
 
-footer {
+.main-card {
+  grid-area: 5 / 3 / 13 / 11;
+}
+
+.footer {
+  grid-area: 11 / 3 / 13 / 11;
   padding: 25px;
   text-align: center;
 }
 
-@media (min-width: 600px) {
-  body {
-    margin: 0 auto;
-    width: 50vw;
+.div__card {
+  display: none;
+  margin: auto;
+  margin-top: 5%;
+  max-width: 60%;
+  background-color: var(--mutedBlue);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 0 15px var(--purpleShadow);
+}
+
+.div__card.active {
+  display: block;
+}
+
+.img--pokemon {
+  border-radius: 50%;
+  border: 5px solid var(--mustard);
+  background-color: var(--grey);
+  margin: 5%;
+  padding: 15px;
+}
+
+.p--description {
+  font-size: 1.25em;
+  margin-top: 5%;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    margin-top: 5%;
+  }
+
+  .div__card {
+    max-width: 30vw;
   }
 }
 
-@media (min-width: 1200px) {
-  body {
-    margin: 0 auto;
-    width: 25vw;
-  }
-
-  header select {
-    width: 25vw;
+@media (min-width: 1280px) {
+  .div__card {
+    max-width: 20vw;
   }
 }

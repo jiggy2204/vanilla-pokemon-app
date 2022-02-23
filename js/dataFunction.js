@@ -7,6 +7,7 @@ const getPokemonList = fetch(
     currPokemon.addEventListener("change", (e) => {
       let pokeValue = e.target.value;
       getPokemonDescription(pokeValue);
+      getCard();
     });
 
     data.results.forEach((item) => {
@@ -21,7 +22,6 @@ const getPokemonDescription = (name) =>
   fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data.order);
       let description = data.flavor_text_entries[0].flavor_text.replace(
         /[\n\f]/g,
         " "
@@ -40,10 +40,26 @@ function getPokemonSpriteUrl(num) {
   return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${num}.png`;
 }
 
+//creating the dropdown items
 function dropListItems(item) {
   let select = document.getElementById("pokemonInput");
   let option = document.createElement("option");
   option.value = item.name;
   option.text = item.name;
   return select.add(option);
+}
+
+//hide card until a pokemon is selected
+function getCard() {
+  let selection = document.getElementById("pokemonInput");
+  let option = selection.value.toString();
+  let card = document.getElementById("pokemon-card");
+
+  console.log(option);
+
+  if (option != "default") {
+    card.classList.add("active");
+  } else {
+    card.classList.remove("active");
+  }
 }
